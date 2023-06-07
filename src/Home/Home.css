@@ -1,0 +1,13 @@
+.home .grid-text {
+  font-size: 12px;
+  color: #5a5a5a;
+}
+.home .manage_team {
+  color: #6a81ec;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
