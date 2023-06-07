@@ -1,0 +1,13 @@
+.login_main .google_btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+.login_main .google_btn {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-transform: none;
+  color: #000;
+  gap: 90px;
+}
