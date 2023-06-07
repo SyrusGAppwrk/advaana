@@ -88,7 +88,7 @@ const Login = () => {
                 }}
               >
                 <Typography component="h1" variant="h5">
-                  Login in
+                  Log in
                 </Typography>
                 <Typography component="h2" variant="h6" fontSize={14} alignItems='center' display={"flex"} sx={{ mt: 1 }} >
                   New to Advaana?<Typography fontWeight={"bold"} fontSize={14}>&nbsp;Create a free account</Typography>
@@ -124,7 +124,7 @@ const Login = () => {
                   >
                     <Grid item sx={{ mt: 1 }}>
                       <Link href="#" variant="body2">
-                        {"Forget password?"}
+                        {"Forgot password?"}
                       </Link>
                     </Grid>
                   </Grid>
@@ -134,7 +134,7 @@ const Login = () => {
                     variant="contained"
                     sx={{ mt: 3, mb: 2, p: 1, textTransform: "none" }}
                   >
-                    Login in with email and password
+                    Log in with email and password
                   </Button>
                   <Typography
                     align='center'>

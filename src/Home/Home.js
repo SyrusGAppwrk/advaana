@@ -1,126 +1,53 @@
-import  React, { useState } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-
-const pages = ['Monitoring', 'Overview', 'DataTransfer'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import { Card, Grid, Typography } from '@mui/material'
+import { Box, Container } from '@mui/system'
+import React from 'react'
+import "./Home.css"
 
 const Home = () => {
 
-  const [anchorElNav, setAnchorElNav] = useState(null);
-  const [anchorElUser, setAnchorElUser] = useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
-    <AppBar position="static" sx={{bgcolor:"#fff"}}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: '#000',
-              textDecoration: 'none',
-            }}
-          >
-            advaana
-          </Typography>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: '#000',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: '#000', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+    <Box sx={{ p: 6 }} className="home">
+      <Container>
+        <Typography sx={{ fontWeight: "bold" }}>Team Activity Panel</Typography>
+        <Box sx={{ minWidth: 275, mt: 2 }}>
+          <Card variant="outlined" sx={{ p: 4 }}>
+            <Grid container sx={{ display: "flex", flexFlow: 1 }} xs={12}>
+              <Grid item xs={3}>
+                <Typography className='grid-text'>Sources connected</Typography>
+                <Typography sx={{ display: "flex", alignItems: "center", fontSize: "24px", fontWeight: "bold" }}>3
+                  <Typography sx={{ fontSize: "12px" }}>
+                    /unlimited
+                  </Typography>
+                </Typography>
+                <Typography sx={{ mt: 1 }} className='manage_team'>Manage your plan</Typography>
+              </Grid>
+              <Grid xs={3}>
+                <Typography className='grid-text'>Sources that require verification</Typography>
+                <Typography sx={{ display: "flex", alignItems: "center", fontSize: "24px", fontWeight: "bold" }}>3
+                  <Typography sx={{ fontSize: "12px" }}>
+                    /unlimited
+                  </Typography>
+                </Typography>
+                <Typography sx={{ mt: 1 }} className='manage_team'>Manage your sources</Typography>
+              </Grid>
+              <Grid xs={6}>
+                <Typography className='grid-text'>Team members</Typography>
+                <Typography sx={{ display: "flex", alignItems: "center", fontSize: "24px", fontWeight: "bold" }}>3
+                  <Typography sx={{ fontSize: "12px" }}>
+                    /unlimited
+                  </Typography>
+                </Typography>
+                <Typography className='manage_team' sx={{ mt: 1 }}>
+                  <Typography sx={{ fontWeight: "bold", fontSize: "12px" }}> Manage your team</Typography>
+                  <Typography className='grid-text'> Send feedback</Typography>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
+                </Typography>
+              </Grid>
+            </Grid>
+          </Card>
+        </Box>
       </Container>
-    </AppBar>
+    </Box>
   )
 }
 
