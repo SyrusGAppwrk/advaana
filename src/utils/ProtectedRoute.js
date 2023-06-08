@@ -1,14 +1,16 @@
 import React from 'react'
-import { Navigate, useLocation } from "react-router-dom"
+import { Navigate, Outlet } from "react-router-dom"
+import Header from '../Home/Header';
 
 const ProtectedRoute = ({ children }) => {
     let userData = localStorage.getItem("user")
-    let location = useLocation();
+    return (
+        <>
+            <Header />
+            {userData ? <Outlet /> : <Navigate to='/login' />}
 
-    if (!userData) {
-        return <Navigate to="/login" state={{ from: location }} replace />
-    }
-    return children
+        </>
+    )
 
 };
 

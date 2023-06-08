@@ -8,6 +8,7 @@ export const jwtVerify = () => {
         var exp = decoded.exp;
         var now = new Date().getTime() / 1000;
         if (now > exp) {
+            alert("Session expired")
             localStorage.removeItem("user");
         }
     }

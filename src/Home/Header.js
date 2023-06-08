@@ -1,3 +1,4 @@
+import { getAuth, signOut } from "firebase/auth";
 import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -16,15 +17,17 @@ import { Badge } from '@mui/base';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import "./Header.css"
+import { Link } from 'react-router-dom';
 const pages = ['Monitoring', 'Overview', 'DataTransfer'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
     const navigate = useNavigate()
     let userData = JSON.parse(localStorage.getItem("user"))
-    const [setAnchorElNav] = useState(null);
+    const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
     const [anchorEl, setAnchorEl] = useState(null);
+    const auth = getAuth();
 
     // const handleOpenNavMenu = (event) => {
     //     setAnchorElNav(event.currentTarget);
@@ -52,6 +55,11 @@ const Header = () => {
         const data = val.target.textContent
         if (data === "Logout") {
             localStorage.removeItem('user')
+            signOut(auth).then(() => {
+                alert("signout")
+            }).catch((error) => {
+                // An error happened.
+            });
             navigate('/login')
         }
     }
@@ -61,23 +69,25 @@ const Header = () => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: '#000',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        advaana
-                    </Typography>
+                    <Link to="/">
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="Link"
+                            to="/"
+                            sx={{
+                                mr: 2,
+                                display: { xs: 'none', md: 'flex' },
+                                fontFamily: 'monospace',
+                                fontWeight: 700,
+                                letterSpacing: '.3rem',
+                                color: '#000',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            advaana
+                        </Typography>
+                    </Link>
                     <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
@@ -90,7 +100,7 @@ const Header = () => {
                             </Button>
                         ))}
                     </Box>
-                    <Button variant="outlined" sx={{ textTransform: "none", mr: 2 }}>Manage sources</Button>
+                    <Link to="/sources">  <Button variant="outlined" sx={{ textTransform: "none", mr: 2 }}>Manage sources</Button></Link>
                     <Box sx={{ flexGrow: 0 }}>
                         <Button
                             variant="contained"
@@ -138,7 +148,7 @@ const Header = () => {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src={userData.providerData[0].photoURL} sx={{ backgroundColor: "#1976D2" }} />
+                                <Avatar alt="Remy Sharp" src={userData?.providerData[0]?.photoURL} sx={{ backgroundColor: "#1976D2" }} />
                             </IconButton>
                         </Tooltip>
                         <Menu
