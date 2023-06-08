@@ -1,0 +1,14 @@
+.searchChannel input {
+  padding: 8px 5px;
+}
+.logoavtar .css-1pqm26d-MuiAvatar-img {
+  height: 58%;
+  width: 55%;
+}
+.list_class-container .list_class{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0px;
+  cursor: pointer;
+}
