@@ -5,7 +5,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -16,24 +15,20 @@ import { useNavigate } from 'react-router';
 import { Badge } from '@mui/base';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import Stack from '@mui/material/Stack';
 import "./Header.css"
 const pages = ['Monitoring', 'Overview', 'DataTransfer'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const createNew = ['Template',];
 
 const Header = () => {
     const navigate = useNavigate()
     let userData = JSON.parse(localStorage.getItem("user"))
-    const [anchorElNav, setAnchorElNav] = useState(null);
+    const [setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
     const [anchorEl, setAnchorEl] = useState(null);
 
-    console.log({ anchorEl, anchorElUser });
-
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
+    // const handleOpenNavMenu = (event) => {
+    //     setAnchorElNav(event.currentTarget);
+    // };
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
@@ -60,7 +55,6 @@ const Header = () => {
             navigate('/login')
         }
     }
-    const menuId = 'primary-search-account-menu';
 
     return (
         <AppBar position="static" sx={{ bgcolor: "#fff" }}>
@@ -126,10 +120,10 @@ const Header = () => {
                                 Create from template
                             </MenuItem>
                             <MenuItem sx={{ minWidth: 125 }} onClick={handleClose} >
-                               Use smart builder
+                                Use smart builder
                             </MenuItem>
                             <MenuItem sx={{ minWidth: 125 }} onClick={handleClose} >
-                              Blank
+                                Blank
                             </MenuItem>
                         </Menu>
 
@@ -144,11 +138,11 @@ const Header = () => {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" sx={{ backgroundColor: "#1976D2" }} />
+                                <Avatar alt="Remy Sharp" src={userData.providerData[0].photoURL} sx={{ backgroundColor: "#1976D2" }} />
                             </IconButton>
                         </Tooltip>
                         <Menu
-                            sx={{ mt: '45px' }}
+                            sx={{ mt: '45px', width: "250px" }}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
                             anchorOrigin={{
@@ -171,7 +165,7 @@ const Header = () => {
 
                         </Menu>
                     </Box>
-                    <Typography sx={{ color: "#000", ml: 1 }}>{userData.displayName}</Typography>
+                    <Typography sx={{ color: "#000", ml: 1 }}>{userData?.displayName}</Typography>
                 </Toolbar>
             </Container>
         </AppBar>
