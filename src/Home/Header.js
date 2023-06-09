@@ -18,6 +18,8 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import "./Header.css"
 import { Link } from 'react-router-dom';
+import { Divider, ListItemIcon, ListItemText } from "@mui/material";
+import { ContentCut } from "@mui/icons-material";
 const pages = ['Monitoring', 'Overview', 'DataTransfer'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -152,7 +154,7 @@ const Header = () => {
                             </IconButton>
                         </Tooltip>
                         <Menu
-                            sx={{ mt: '45px', width: "250px" }}
+                            sx={{ mt: '45px' }}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
                             anchorOrigin={{
@@ -162,15 +164,22 @@ const Header = () => {
                             keepMounted
                             transformOrigin={{
                                 vertical: 'top',
-                                horizontal: 'right',
+                                horizontal: 'left',
                             }}
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
                             {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center" onClick={handleMenu}>{setting}</Typography>
-                                </MenuItem>
+                                <Box className="profile-menu">
+                                    <MenuItem key={setting} className="menu-list" onClick={handleCloseUserMenu} sx={{ width: "150px" }}>
+                                        <ListItemIcon>
+                                            <ContentCut fontSize="small" />
+                                        </ListItemIcon>
+                                        <ListItemText onClick={handleMenu}>{setting}</ListItemText>
+
+                                    </MenuItem>
+                                    <Divider className="divider-class" />
+                                </Box>
                             ))}
 
                         </Menu>

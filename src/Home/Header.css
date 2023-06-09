@@ -1,4 +1,11 @@
-.btn_appbar:hover{
-background-color: #1976D2;
-border-radius: 4px;
+.btn_appbar:hover {
+  background-color: #1976d2;
+  border-radius: 4px;
+}
+.profile-menu .menu-list {
+  padding: 10px;
+}
+.profile-menu .divider-class {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
