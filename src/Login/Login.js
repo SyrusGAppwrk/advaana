@@ -29,7 +29,6 @@ const Login = () => {
 
 
   //handle submit
-
   const handleSubmit = () => {
 
   }
@@ -58,9 +57,14 @@ const Login = () => {
       alert(err.message);
     }
   };
+
+  const register = () => {
+    navigate("/register")
+  }
+
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Box sx={{ height: "100vh", bgcolor: '#B8926B' }} className="login_main">
+      <Box sx={{ height: "100vh", bgcolor: '#F9F9FA' }} className="login_main">
         <Container component="main" maxWidth="xs" sx={{ padding: '50px 0 0' }}>
           <Avatar
             className='avatar-icon'
@@ -91,7 +95,8 @@ const Login = () => {
                   Log in
                 </Typography>
                 <Typography component="h2" variant="h6" fontSize={14} alignItems='center' display={"flex"} sx={{ mt: 1 }} >
-                  New to Advaana?<Typography fontWeight={"bold"} fontSize={14}>&nbsp;Create a free account</Typography>
+                  New to Advaana?
+                  <Typography className='register' onClick={register}>&nbsp;Create a free account</Typography>
                 </Typography>
 
                 <Box component="form" onSubmit={handleSubmit} noValidate>

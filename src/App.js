@@ -5,6 +5,7 @@ import ProtectedRoute from "./utils/ProtectedRoute";
 import { useEffect } from "react";
 import { jwtVerify } from "./utils/helper";
 import { ManageSources } from "./sources/ManageSources";
+import { Register } from "./register/Register";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/sources" element={<ManageSources />} />
           </Route>
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter >
     </>

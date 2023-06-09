@@ -11,3 +11,10 @@
   color: #000;
   gap: 90px;
 }
+.login_main .register {
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  color: #1976d2;
+}

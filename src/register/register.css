@@ -1,0 +1,58 @@
+.register_main {
+  height: 100vh;
+  position: relative;
+  z-index: 5;
+}
+
+.register_main:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(30 47 66 / 40%);
+  z-index: 1;
+  display: inline-block;
+}
+
+.register_main:after {
+  content: "";
+  height: 100vh;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/advaana-c5e5d.appspot.com/o/advaana-bg-img%403x.png?alt=media&token=ea40574a-a66b-4bf9-8676-8ed3a299c2f7&_gl=1*1xa1g4b*_ga*MjA5NzQ4ODgxNy4xNjg2MTI3NTE1*_ga_CW55HF8NVT*MTY4NjI5NTk2OC43LjEuMTY4NjI5NjA4NS4wLjAuMA..");
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+  inset: 0;
+  display: inline-block;
+  z-index: -1;
+}
+
+.register_main-container {
+  position: relative;
+  z-index: 5;
+}
+@media (min-width: 569px) {
+  .register_main-container {
+    min-width: 700px;
+  }
+}
+.register_main .heading {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(30 47 66);
+  display: flex;
+  justify-content: center;
+}
+.register_main .register-form input {
+  padding: 10px;
+}
+.back-login {
+  font-size: 12px!important;
+  color: #1565c0;
+  margin-top: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center !important;
+  gap: 3px;
+}
+  
